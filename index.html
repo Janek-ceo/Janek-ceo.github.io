@@ -1,1 +1,455 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WebCraft - Profesjonalne strony internetowe na każdą kieszeń.">
+    <title>WebCraft - Sklep ze stronami internetowymi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #495057;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #343a40;
+        }
+
+        main {
+            flex-grow: 1;
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #495057;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            color: #6c757d;
+            text-align: center;
+        }
+
+        .package {
+            background-color: #f1f1f1;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .package:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .package h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #343a40;
+        }
+
+        .package p {
+            font-size: 16px;
+            color: #495057;
+        }
+
+        .package span {
+            display: block;
+            font-size: 20px;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .about-content img {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #495057;
+            text-align: left;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .team-member h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+            color: #343a40;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #495057;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            width: 100%;
+            position: sticky;
+            bottom: 0;
+        }
+
+        .main-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .pay-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .pay-button:hover {
+            background-color: #218838;
+        }
+
+        #message {
+            display: none;
+            font-size: 24px;
+            color: #28a745;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .comments-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fffae6;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .comment {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .comment h4 {
+            margin-bottom: 5px;
+            color: #495057;
+        }
+
+        .comment p {
+            color: #6c757d;
+        }
+
+        .course-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            border: 1px solid #bee3f8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WebCraft - Profesjonalne Strony Internetowe</h1>
+    </header>
+
+    <nav>
+        <a href="#home" onclick="showSection('home')">Strona główna</a>
+        <a href="#services" onclick="showSection('services')">Usługi</a>
+        <a href="#about" onclick="showSection('about')">O nas</a>
+        <a href="#course" onclick="showSection('course')">Kurs</a>
+    </nav>
+
+    <main id="content">
+        <section id="home">
+            <h2>Witamy w WebCraft!</h2>
+            <p>
+                W WebCraft oferujemy profesjonalne strony internetowe dla firm, freelancerów oraz projektów indywidualnych. Nasza oferta obejmuje zarówno proste strony wizytówki, jak i rozbudowane sklepy internetowe. Nasze pakiety są dostosowane do każdego budżetu i gwarantują szybkie, estetyczne i funkcjonalne rozwiązania.
+            </p>
+
+            <div class="comments-section">
+                <h3>Opinie naszych klientów:</h3>
+                <div class="comment">
+                    <h4>Anna Kowalska</h4>
+                    <p>„WebCraft stworzyło dla mnie wspaniałą stronę! Jestem bardzo zadowolona z efektów i polecam wszystkim!”</p>
+                </div>
+                <div class="comment">
+                    <h4>Piotr Nowak</h4>
+                    <p>„Świetna obsługa klienta i profesjonalne podejście do projektu. Serdecznie polecam!”</p>
+                </div>
+                <div class="comment">
+                    <h4>Kasia Wiśniewska</h4>
+                    <p>„Dzięki WebCraft moja firma zyskała nową, atrakcyjną stronę internetową. Zespół był bardzo pomocny!”</p>
+                </div>
+                <div class="comment">
+                    <h4>Jakub Zieliński</h4>
+                    <p>„Jestem zachwycony, jak łatwo było stworzyć stronę według moich potrzeb. Dziękuję za profesjonalizm!”</p>
+                </div>
+                <div class="comment">
+                    <h4>Magda Nowicka</h4>
+                    <p>„Bardzo polecam! Profesjonalizm, szybkość działania i pełne zaangażowanie. Moja strona działa świetnie!”</p>
+                </div>
+            </div>
+
+            <div class="thank-you-section">
+                <p>Dziękujemy za współpracę Arkadiuszowi Bieleninikowi! Dowiedz się więcej o jego pracy na stronie <a href="https://bieleninikneurologdzieciecy.pl" target="_blank">bieleninikneurologdzieciecy.pl</a>.</p>
+            </div>
+        </section>
+
+        <section id="services" style="display: none;">
+            <h2>Nasze Pakiety</h2>
+            <div class="package">
+                <h3>Mały Pakiet</h3>
+                <span>Cena: 30 zł</span>
+                <p>Mały Pakiet oferuje podstawową stronę internetową, idealną dla małych projektów i wizytówek. Zawiera prosty układ, możliwość dodania podstawowych informacji i kontaktu.</p>
+                <button class="pay-button" onclick="pay('Mały Pakiet')">Zapłać</button>
+            </div>
+
+            <div class="package">
+                <h3>Średni Pakiet</h3>
+                <span>Cena: 50 zł</span>
+                <p>Średni Pakiet to doskonały wybór dla firm i freelancerów. Obejmuje bardziej zaawansowany układ, galerię zdjęć, formularz kontaktowy oraz integrację z mediami społecznościowymi.</p>
+                <button class="pay-button" onclick="pay('Średni Pakiet')">Zapłać</button>
+            </div>
+
+            <div class="package">
+                <h3>Duży Pakiet</h3>
+                <span>Cena: 100 zł</span>
+                <p>Duży Pakiet to kompletne rozwiązanie dla dużych firm i e-commerce. Zawiera w pełni funkcjonalny sklep internetowy, system zarządzania treścią (CMS), integrację z płatnościami online oraz wsparcie techniczne.</p>
+                <button class="pay-button" onclick="pay('Duży Pakiet')">Zapłać</button>
+            </div>
+        </section>
+
+        <section id="about" style="display: none;">
+            <h2>O nas</h2>
+            <div class="about-content">
+                <img src="logo.webp" alt="WebCraft logo">
+                <div class="about-text">
+                    <p>
+                        WebCraft to zespół profesjonalistów, którzy specjalizują się w tworzeniu stron internetowych na najwyższym poziomie. Naszym celem jest dostarczanie nowoczesnych, estetycznych i łatwych w obsłudze stron, które pomogą naszym klientom osiągnąć sukces w sieci.
+                    </p>
+                </div>
+            </div>
+
+            <h2>Nasz Zespół</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="19winbuo94t91.webp" alt="Jan Bieleninik">
+                    <h4>Jan Bieleninik</h4>
+                    <p>CEO i założyciel</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="Arkadiusz-Bieleninik.jpg" alt="Arkadiusz Bieleninik">
+                    <h4>Arkadiusz Bieleninik</h4>
+                    <p>Sponsor</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="BRAHAMMF01.jpg" alt="Brachypelma Hamori">
+                    <h4>Brachypelma Hamori</h4>
+                    <p>Projektant graficzny</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="Robotnik.jpg" alt="Gekon Gekonowy">
+                    <h4>Gekon Gekonowy</h4>
+                    <p>Specjalista ds. marketingu</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="course" style="display: none;">
+            <h2>Kurs: Jak programować w HTML i CSS</h2>
+            <div class="course-section">
+                <p>
+                    HTML (HyperText Markup Language) i CSS (Cascading Style Sheets) to podstawowe technologie używane do tworzenia stron internetowych. 
+                    Oto kilka kroków, które pomogą Ci rozpocząć naukę:
+                </p>
+                <h3>1. Podstawy HTML</h3>
+                <p>
+                    HTML jest językiem znaczników, który służy do strukturyzacji treści na stronie. 
+                    Oto przykładowa struktura dokumentu HTML:
+                </p>
+                <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Tytuł Strony&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Witaj w HTML!&lt;/h1&gt;
+    &lt;p&gt;To jest przykładowy paragraf.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+                <h3>2. Podstawy CSS</h3>
+                <p>
+                    CSS jest używany do stylizacji stron. Możesz zmieniać kolory, czcionki, układ i wiele innych. 
+                    Oto przykład, jak za pomocą CSS zmienić kolor tekstu:
+                </p>
+                <pre>
+p {
+    color: blue;
+}
+                </pre>
+                <h3>3. Łączenie HTML i CSS</h3>
+                <p>
+                    Możesz połączyć HTML i CSS na dwa sposoby: za pomocą stylów wbudowanych w tagu HTML lub za pomocą zewnętrznych arkuszy stylów.
+                    Oto przykład zewnętrznego arkusza stylów:
+                </p>
+                <pre>
+&lt;link rel="stylesheet" href="style.css"&gt;
+                </pre>
+                <p>
+                    To wszystko, aby rozpocząć swoją przygodę z programowaniem w HTML i CSS! 
+                    Pamiętaj, aby regularnie ćwiczyć i eksperymentować z kodem.
+                </p>
+            </div>
+        </section>
+
+        <div id="message">
+            <span id="payment-info"></span>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 WebCraft. Wszystkie prawa zastrzeżone.
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function generateRandomCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 10; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        function pay(packageName) {
+            const message = document.getElementById('message');
+            const paymentInfo = document.getElementById('payment-info');
+            const randomCode = generateRandomCode();
+            paymentInfo.innerText = `${packageName} został opłacony!\nTwój kod to: ${randomCode}`;
+            message.style.display = 'block';
+
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 10000);
+        }
+    </script>
+</body>
+</html>
